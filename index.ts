@@ -5,14 +5,13 @@ import { AnthropicChatAdapter } from "@smithery/sdk/integrations/llm/anthropic.j
 import { WebSocketClientTransport } from "@modelcontextprotocol/sdk/client/websocket.js";
 import { createSmitheryUrl } from "@smithery/sdk/config.js";
 import dotenv from "dotenv";
-import { exit } from "node:process";
 
 async function main() {
   dotenv.config();
 
   if (!process.env.EXA_API_KEY) {
     console.error("Please set the EXA_API_KEY environment variable.");
-    exit(1);
+    process.exit(1);
   }
 
   // Create a new connection
@@ -89,7 +88,7 @@ async function main() {
   });
 
   await client.close();
-  exit(0);
+  process.exit(0);
 }
 
 // Run the example
