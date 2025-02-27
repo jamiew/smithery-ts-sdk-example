@@ -9,19 +9,10 @@ import dotenv from "dotenv";
 async function main() {
   dotenv.config();
 
-  if (!process.env.EXA_API_KEY) {
-    console.error("Please set the EXA_API_KEY environment variable.");
+  if (!process.env.EXA_API_KEY || !process.env.ANTHROPIC_API_KEY) {
+    console.error("Missing required environment variables (.env)");
     process.exit(1);
   }
-
-  // Create a new connection
-  // const exaTransport = createTransport(
-  //   // Note: this server may not exist. Replace with your deployment
-  //   "https://exa-mcp-server-42082066756.us-central1.run.app",
-  //   {
-  //     apiKey: process.env.EXA_API_KEY,
-  //   }
-  // );
 
   // Using sample code from:
   // https://smithery.ai/server/exa
